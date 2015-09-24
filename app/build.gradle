@@ -1,0 +1,76 @@
+apply plugin: 'com.android.application'
+
+buildscript {
+    repositories {
+        maven { url 'https://raw.github.com/xujiaao/mvn-repository/master/releases' }
+    }
+
+    dependencies {
+        classpath 'com.github.xujiaao:aarLinkSources:1.0.0'
+    }
+}
+apply plugin: 'com.android.application'
+apply plugin: 'aar-link-sources'
+
+android {
+    signingConfigs {
+        config {
+            storeFile file('/Users/khaines178/Desktop/swiftkaydevelopment_keystore.jks')
+            keyAlias 'swiftkaykey'
+            keyPassword '10Bb29551781'
+            storePassword '10Bb29551781'
+        }
+    }
+    compileSdkVersion 23
+    buildToolsVersion "23.0.1"
+    defaultConfig {
+        applicationId "com.swiftkaydevelopment.testing"
+        minSdkVersion 18
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+    }
+    packagingOptions {
+
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+        }
+        debug {
+            signingConfig signingConfigs.config
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.android.support:appcompat-v7:23.0.1'
+    compile('com.h6ah4i.android.widget.advrecyclerview:advrecyclerview:0.7.4@aar') {
+        transitive = true
+    }
+    compile 'com.android.support:design:22.2.0'
+    aarLinkSources 'com.h6ah4i.android.widget.advrecyclerview:advrecyclerview:0.7.4:sources@jar'
+    compile files('libs/commons-codec-1.6.jar')
+    compile files('libs/commons-logging-1.1.3.jar')
+    compile files('libs/fluent-hc-4.3.4.jar')
+    compile files('libs/httpclient-4.3.4.jar')
+    compile files('libs/httpclient-cache-4.3.4.jar')
+    compile files('libs/httpcore-4.3.2.jar')
+    compile files('libs/httpmime-4.3.4.jar')
+    //this is for bottom sheet
+    compile 'com.flipboard:bottomsheet-core:1.4.3'
+    compile 'com.flipboard:bottomsheet-commons:1.4.3'
+    // optional
+    //rich text editor
+    compile 'jp.wasabeef:richeditor-android:0.3.0'
+}

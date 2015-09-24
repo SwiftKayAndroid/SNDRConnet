@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.flipboard.bottomsheet.BottomSheetLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/richtextbottomsheet"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<RelativeLayout
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="#ffffff">
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/ivcontact_card_dismiss"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="7dp"
+        android:layout_marginLeft="7dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/downarrow" />
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/ivcontactcard"
+        android:layout_alignTop="@+id/ivcontact_card_dismiss"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/ic_placeholder" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Kevin Haines"
+        android:id="@+id/tvcontact_card_name"
+        android:layout_below="@+id/ivcontactcard"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:textStyle="bold"
+        android:textColor="@color/normal_blue"
+        android:gravity="center" />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lvcontact_card"
+        android:layout_below="@+id/tvcontact_card_name"
+        android:layout_centerHorizontal="true"
+        android:background="@null" />
+
+</RelativeLayout>
+    </com.flipboard.bottomsheet.BottomSheetLayout>
