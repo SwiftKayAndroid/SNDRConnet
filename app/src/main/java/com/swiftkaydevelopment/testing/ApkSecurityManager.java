@@ -31,23 +31,17 @@ public class ApkSecurityManager {
             new AlertDialog.Builder(context)
                     .setTitle("Security Warning!")
                     .setMessage("The integrity of this app has been lost. Please uninstall and reinstall from Play Store")
-                    .setPositiveButton("I understand", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            //do nothing
-                        }
-                    })
+                    .setPositiveButton("I understand", null)
                     .show();
-
         }
     }
 
 //get signature for apk
-    private String getSignature(){
+    private String getSignature() {
         StringBuilder sb = new StringBuilder("");
         String s = "";
 
         try {
-
             Signature[] sigs = context.getPackageManager().getPackageInfo(context.getPackageName(), PackageManager.GET_SIGNATURES).signatures;
             for (Signature sig : sigs) {
                 String[] temparray = sig.toString().trim().split(".pm.");
@@ -56,12 +50,10 @@ public class ApkSecurityManager {
                 System.out.println("Signature: " + temp);
 
             }
-        }catch(PackageManager.NameNotFoundException e){
+        } catch(PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
         s = sb.toString();
         return s;
     }
-
-
 }

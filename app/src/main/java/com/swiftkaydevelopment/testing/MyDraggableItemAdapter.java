@@ -83,8 +83,6 @@ public class MyDraggableItemAdapter
             tvemail = (TextView) v.findViewById(R.id.tvlist_item_email);
             ivpicture = (ImageView) v.findViewById(R.id.ivlist_item);
             v.setTag(this);
-
-
         }
     }
 
@@ -124,14 +122,14 @@ public class MyDraggableItemAdapter
         final AbstractDataProvider.Data item = mProvider.getItem(position);
 
         final boolean isActive = item.getIsActive();
-        if(!isActive){
+        if (!isActive) {
 
             holder.tvname.setTextColor(context.getResources().getColor(R.color.inactive_text));
             holder.tvemail.setTextColor(context.getResources().getColor(R.color.inactive_text));
             holder.tvphone.setTextColor(context.getResources().getColor(R.color.inactive_text));
             holder.ivpicture.setAlpha(.50f);
 
-        }else{
+        } else {
             holder.tvname.setTextColor(context.getResources().getColor(R.color.normal_blue));
             holder.tvemail.setTextColor(context.getResources().getColor(R.color.normal_blue));
             holder.tvphone.setTextColor(context.getResources().getColor(R.color.normal_blue));
@@ -166,9 +164,6 @@ public class MyDraggableItemAdapter
             holder.mContainer.setBackgroundResource(bgResId);
         }
 
-
-
-
         holder.mContainer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -180,7 +175,6 @@ public class MyDraggableItemAdapter
                 ListView lv = (ListView) bottomView.findViewById(R.id.lvcontact_card);
                 tvcontactname.setText(item.getFirstname() + " " + item.getLastname());
                 imageLoader.DisplayImage(item.getPicture(), ivphoto, true);
-
 
                 List<TitleValues> mlist = new ArrayList<TitleValues>();
                 TitleValues val = new TitleValues();
@@ -231,16 +225,13 @@ public class MyDraggableItemAdapter
                 val.imgloc = R.drawable.notification;
                 mlist.add(val);
 
-
                 lv.setAdapter(new ContactCardAdapter(context, mlist));
 
                 View header = inflater.inflate(R.layout.contact_card_header,null);
                 TagView tagview = (TagView) header.findViewById(R.id.tagview);
 
                 String[] tags = item.getTags();
-                for(int i = 0; i < tags.length;i++) {
-
-
+                for (int i = 0; i < tags.length;i++) {
                     Tag tag = new Tag(tags[i]);
                     tag.tagTextColor = Color.parseColor("#FFFFFF");
                     tag.layoutColor = context.getResources().getColor(R.color.normal_blue);
@@ -267,7 +258,6 @@ public class MyDraggableItemAdapter
                     public final static int FINGER_DRAGGING = 2;
                     public final static int FINGER_UNDEFINED = 3;
                     private int fingerState = FINGER_RELEASED;
-
 
                     @Override
                     public boolean onTouch(View view, MotionEvent motionEvent) {
@@ -483,15 +473,12 @@ public class MyDraggableItemAdapter
 
                             default:
                                 fingerState = FINGER_UNDEFINED;
-
                         }
-
                         return false;
                     }
                 });
 
                 lv.addFooterView(footer);
-
 
                 ivdismiss.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -500,9 +487,7 @@ public class MyDraggableItemAdapter
                     }
                 });
 
-
                 RecyclerListViewFragment.bottomSheet.showWithSheetView(bottomView);
-
             }
         });
     }

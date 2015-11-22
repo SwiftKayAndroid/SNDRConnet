@@ -53,14 +53,5 @@ public class RichTextDisplayView extends WebView {
             html = "<html><br><br>Click Here to add a note<br><br></html>";
         }
         this.loadData(html, "text/html", null);
-
     }
-
-
-
-
-
-
-
-
 }

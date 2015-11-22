@@ -58,10 +58,7 @@ public class ContactCardAdapter extends BaseAdapter {
             holder.iv.setImageResource(val.imgloc);
             holder.tvtitle.setText(val.title);
             holder.tvvalue.setText(val.value);
-
         }
-
-
         return row;
     }
 
@@ -69,6 +66,5 @@ public class ContactCardAdapter extends BaseAdapter {
         ImageView iv;
         TextView tvtitle;
         TextView tvvalue;
-
     }
 }

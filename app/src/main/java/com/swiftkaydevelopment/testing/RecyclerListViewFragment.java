@@ -93,37 +93,6 @@ public class RecyclerListViewFragment extends Fragment {
         mRecyclerView.addItemDecoration(new SimpleListDividerDecorator(getResources().getDrawable(R.drawable.list_divider), true));
 
         mRecyclerViewDragDropManager.attachRecyclerView(mRecyclerView);
-
-
-
-//on item touch listener to pop up the bottomsheet with items details.
-
-        mRecyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
-
-            @Override
-            public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
-                return false;
-            }
-
-            @Override
-            public void onTouchEvent(RecyclerView rv, MotionEvent e) {
-
-                if(e.getAction() == MotionEvent.ACTION_DOWN){
-
-
-                }
-
-            }
-
-            @Override
-            public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
-
-            }
-        });
-
-        // for debugging
-//        animator.setDebug(true);
-//        animator.setMoveDuration(2000);
     }
 
     @Override
@@ -162,6 +131,4 @@ public class RecyclerListViewFragment extends Fragment {
     public AbstractDataProvider getDataProvider() {
         return ((DraggableExampleActivity) getActivity()).getDataProvider();
     }
-
-
 }

@@ -22,25 +22,13 @@ public class MainActivity extends AppCompatActivity {
 
         btnconnect = (Button) findViewById(R.id.btnconnect);
 
-
         btnconnect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
                 Intent i = new Intent("com.swiftkaydevelopment.testing.DRAGGABLEEXAMPLEACTIVITY");
                 startActivity(i);
                 finish();
-
             }
         });
-
-
-
-
-
-
     }
-
-
 }
